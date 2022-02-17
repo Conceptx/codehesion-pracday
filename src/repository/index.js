@@ -21,8 +21,8 @@ export const fetchMenus = () => new Promise(async (resolve, reject) => {
 			}
 		};
 		
-		const data = await axios(config);
-		resolve(data.data);
+		const response = await axios(config);
+		resolve(response.data);
 	} catch (error) {
 		reject(error);
 	}
@@ -41,8 +41,27 @@ export const fetchProfile = () => new Promise(async (resolve, reject) => {
 			}
 		};
 		
-		const data = await axios(config);
-		resolve(data.data);
+		const response = await axios(config);
+		resolve(response.data);
+	} catch (error) {
+		reject(error);
+	}
+})
+
+export const fetchNews = () => new Promise(async (resolve, reject) => {
+	try {
+		const accessToken = fetchAccessToken();
+		
+		const config = {
+			method: 'get',
+			url: `${baseUrl}/api/v1/news/local_news`,
+			headers: {
+				'Authorization': `Bearer ${accessToken}`
+			}
+		};
+		
+		const response = await axios(config);
+		resolve(response.data);
 	} catch (error) {
 		reject(error);
 	}
