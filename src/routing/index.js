@@ -7,6 +7,7 @@ import BaseLayout from "../components/baseLayout";
 import Home from "../pages/home";
 import ItemDetail from "../pages/itemDetail";
 import SectionDetail from "../pages/sectionDetail";
+import CurrencyDetail from "../pages/currencyDetail";
 
 const Routing = () => {
 	return (
@@ -19,6 +20,7 @@ const Routing = () => {
 				<Home path={"/"} />
 				<ItemDetail path={"/:name"} />
 				<SectionDetail path={"/:name/section"} />
+				<CurrencyDetail path={"/rates"} />
 			</ProtectedRoute>
 		</Router>
 	);

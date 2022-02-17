@@ -8,7 +8,8 @@ import {
 	Divider
 } from "@mui/material";
 import {useNavigate} from "@reach/router";
-import {MenuOpen, Menu, Logout} from "@mui/icons-material";
+import {MenuOpen, Menu, Logout, CurrencyExchange} from "@mui/icons-material";
+import {iconSize} from "../constants";
 
 const homeMenuItem = {name: "home", description: ""}
 
@@ -65,6 +66,15 @@ const NavBar = ({menus = [], profile = {}}) => {
 								</MenuItem>
 							))
 						}
+						<MenuItem
+							onClick={() => {
+								setVisible(false);
+								navigate(`/home/rates`);
+							}}
+						>
+							<CurrencyExchange style={{height: iconSize, width: iconSize, marginRight: 8}} />
+							<ListItemText>Rates</ListItemText>
+						</MenuItem>
 					</MenuList>
 					
 					<Divider />

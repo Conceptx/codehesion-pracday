@@ -67,3 +67,22 @@ export const fetchNews = () => new Promise(async (resolve, reject) => {
 	}
 })
 
+export const fetchRates = () => new Promise(async (resolve, reject) => {
+	try {
+		const accessToken = fetchAccessToken();
+		
+		const config = {
+			method: 'get',
+			url: `${baseUrl}/api/v1/currency`,
+			headers: {
+				'Authorization': `Bearer ${accessToken}`
+			}
+		};
+		
+		const response = await axios(config);
+		resolve(response.data);
+	} catch (error) {
+		reject(error);
+	}
+})
+
